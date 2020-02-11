@@ -22,7 +22,7 @@ public class MainController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        mainLabelTxt.setText("Welcome tic-tac-toe to the game. If you want to play press File/Start New Game");
+        mainLabelTxt.setText("Welcome Tic-Tac-Toe game.");
     }
 
 

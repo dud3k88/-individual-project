@@ -38,7 +38,7 @@
             <Insets top="80.0" />
          </StackPane.margin>
          <font>
-            <Font name="Futura Medium" size="13.0" />
+            <Font name="Futura Medium" size="20.0" />
          </font>
       </Label>
    </children>
