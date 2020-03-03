@@ -69,10 +69,14 @@ class Tile extends StackPane {
                     }
                 }
             }
+
+            if (TicTacToe.playerVsComputer) {
+            // Po wstawieniu cross, randomowe wstawienie circle?????,
+            }
         });
 
     }
-
+    //metoda wywołana po każdym wstawieniu znaku (cross/cricle)
     public void checkResult (){
     }
 }

@@ -21,10 +21,10 @@ public class TicTacToe extends Application {
     public static MainBoard mainBoard = new MainBoard();
     public static Label label = new Label();
     public static boolean playerVsPlayer = false;
+    public static boolean playerVsComputer = false;
     public static boolean turnX = true;
     public static Numerator playerX = new Numerator(0);
     public static Numerator playerO = new Numerator(0);
-    public static Label counter = new Label();
 
 
     private static Parent createScene (){
@@ -46,6 +46,9 @@ public class TicTacToe extends Application {
         playerVsComp.setLayoutX(0);
         playerVsComp.setLayoutY(602);
         playerVsComp.setPrefSize(200,50);
+        playerVsComp.setOnAction(action ->{
+            playerVsComputer = true;
+        });
 
 
         Button plaVsPlayer = new Button();
@@ -59,7 +62,6 @@ public class TicTacToe extends Application {
             playerVsPlayer = true;
             playerX.setNumerator(0);
             playerO.setNumerator(0);
-            counter.setText("X " + playerO.getNumerator() + " " + playerO.getNumerator());
 
         });
 

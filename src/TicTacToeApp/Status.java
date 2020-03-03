@@ -14,6 +14,10 @@ public class Status {
                 Rectangle rectangle = (Rectangle) tiles[j][i].getChildren().get(0);
                 rectangle.setFill(null);
             }
+
+
         }
     }
+
+    // Metoda sprawdzająca wygraną,
 }
