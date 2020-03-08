@@ -20,11 +20,15 @@ public class TicTacToe extends Application {
 
     public static MainBoard mainBoard = new MainBoard();
     public static Label label = new Label();
+    public static Label counter = new Label();
+    public static Label whoVsWho = new Label();
     public static boolean playerVsPlayer = false;
     public static boolean playerVsComputer = false;
     public static boolean turnX = true;
+    public static boolean possibleMove = true;
     public static Numerator playerX = new Numerator(0);
     public static Numerator playerO = new Numerator(0);
+
 
 
     private static Parent createScene (){
@@ -48,6 +52,10 @@ public class TicTacToe extends Application {
         playerVsComp.setPrefSize(200,50);
         playerVsComp.setOnAction(action ->{
             playerVsComputer = true;
+            counter.setText("X  [" + playerX.getNumerator()
+                    + "] : [" + playerO.getNumerator() + "]  O");
+            whoVsWho.setText("YOU vs. COMPUTER");
+            whoVsWho.setLayoutX(415);
         });
 
 
@@ -60,9 +68,9 @@ public class TicTacToe extends Application {
         plaVsPlayer.setPrefSize(200, 50);
         plaVsPlayer.setOnAction(action -> {
             playerVsPlayer = true;
-            playerX.setNumerator(0);
-            playerO.setNumerator(0);
-
+            counter.setText("X  [" + playerX.getNumerator()
+                    + "] : [" + playerO.getNumerator() + "]  O");
+            whoVsWho.setText("YOU vs 2 PLAYER");
         });
 
 
@@ -77,16 +85,28 @@ public class TicTacToe extends Application {
             System.exit(0);
         });
 
-        label.setText("Hello");
-        label.setTextFill(Color.RED);
+        label.setText("");
+        label.setWrapText(true);
+        label.setTextFill(Color.BLACK);
         label.setFont(new Font(20));
-        label.setLayoutX(470);
-        label.setLayoutY(640);
+        label.setLayoutX(410);
+        label.setLayoutY(610);
         label.setAlignment(Pos.CENTER);
+
+        counter.setText("SCORE: X: (" + playerX.getNumerator()+ ") O: (" + playerO.getNumerator() + ")");
+        counter.setTextFill(Color.BLACK);
+        counter.setLayoutY(675);
+        counter.setLayoutX(450);
+
+        whoVsWho.setText("");
+        whoVsWho.setTextFill(Color.RED);
+        whoVsWho.setLayoutY(640);
+        whoVsWho.setLayoutX(428);
+        whoVsWho.setFont(new Font(20));
 
 
         root.getChildren().addAll(Arrays.stream(mainBoard.tiles).flatMap(Arrays::stream).collect(Collectors.toList()));
-        root.getChildren().addAll(reset, playerVsComp, plaVsPlayer, exit, label);
+        root.getChildren().addAll(reset, playerVsComp, plaVsPlayer, exit, label, counter, whoVsWho);
 
 
         return root;
